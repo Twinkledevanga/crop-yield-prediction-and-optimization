@@ -1,0 +1,13 @@
+# train_and_save_model.py
+import joblib
+from sklearn.ensemble import RandomForestClassifier
+
+# Pretend crop data (tiny sample)
+X = [[100, 200], [120, 180], [90, 210], [200, 100]]  # numbers like rainfall, area
+y = ['wheat', 'wheat', 'rice', 'maize']              # crop names
+
+model = RandomForestClassifier(n_estimators=10, random_state=0)
+model.fit(X, y)
+
+joblib.dump(model, 'crop_model.pkl')
+print("Saved crop_model.pkl")
